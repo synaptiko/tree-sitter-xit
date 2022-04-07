@@ -1,0 +1,16 @@
+{
+  "name": "tree-sitter-xit",
+  "version": "0.0.1",
+  "license": "MIT",
+  "dependencies": {
+    "nan": "^2.15.0"
+  },
+  "devDependencies": {
+    "tree-sitter-cli": "^0.20.6"
+  },
+  "main": "bindings/node",
+	"scripts": {
+		"generate": "tree-sitter generate",
+		"test": "tree-sitter test"
+	}
+}

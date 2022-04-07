@@ -1,0 +1,188 @@
+[
+  {
+    "type": "checked_checkbox",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "checked_task",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "checked_checkbox",
+          "named": true
+        },
+        {
+          "type": "task_description",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "document",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "task_definition",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "obsolete_checkbox",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "obsolete_task",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "obsolete_checkbox",
+          "named": true
+        },
+        {
+          "type": "task_description",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "ongoing_checkbox",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "ongoing_task",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "ongoing_checkbox",
+          "named": true
+        },
+        {
+          "type": "task_description",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "open_checkbox",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "open_task",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "open_checkbox",
+          "named": true
+        },
+        {
+          "type": "task_description",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "task_definition",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "checked_task",
+          "named": true
+        },
+        {
+          "type": "obsolete_task",
+          "named": true
+        },
+        {
+          "type": "ongoing_task",
+          "named": true
+        },
+        {
+          "type": "open_task",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "task_description",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "task_name",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "task_name",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "\n",
+    "named": false
+  },
+  {
+    "type": "\n   ",
+    "named": false
+  },
+  {
+    "type": " ",
+    "named": false
+  },
+  {
+    "type": "[ ]",
+    "named": false
+  },
+  {
+    "type": "[@]",
+    "named": false
+  },
+  {
+    "type": "[x]",
+    "named": false
+  },
+  {
+    "type": "[~]",
+    "named": false
+  }
+]

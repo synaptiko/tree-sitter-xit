@@ -1,0 +1,209 @@
+=========
+Open task
+=========
+[ ] Open task
+---
+
+(document
+	(task_definition
+		(open_task
+			(open_checkbox)
+			(task_description
+				(task_name)
+			)
+		)
+	)
+)
+
+============
+Ongoing task
+============
+[@] Ongoing task
+---
+
+(document
+	(task_definition
+		(ongoing_task
+			(ongoing_checkbox)
+			(task_description
+				(task_name)
+			)
+		)
+	)
+)
+
+============
+Checked task
+============
+[x] Checked task
+---
+
+(document
+	(task_definition
+		(checked_task
+			(checked_checkbox)
+			(task_description
+				(task_name)
+			)
+		)
+	)
+)
+
+=============
+Obsolete task
+=============
+[~] Obsolete task
+---
+
+(document
+	(task_definition
+		(obsolete_task
+			(obsolete_checkbox)
+			(task_description
+				(task_name)
+			)
+		)
+	)
+)
+
+=========
+Task list
+=========
+[ ] Task 1
+[ ] Task 2
+[ ] Task 3
+---
+
+(document
+	(task_definition
+		(open_task
+			(open_checkbox)
+			(task_description
+				(task_name)
+			)
+		)
+	)
+	(task_definition
+		(open_task
+			(open_checkbox)
+			(task_description
+				(task_name)
+			)
+		)
+	)
+	(task_definition
+		(open_task
+			(open_checkbox)
+			(task_description
+				(task_name)
+			)
+		)
+	)
+)
+
+==============
+Multiline task
+==============
+[ ] Task 1
+[ ] Task 2 with some long description
+    that spans multiple lines
+    like this
+[ ] Task 3
+---
+
+(document
+	(task_definition
+		(open_task
+			(open_checkbox)
+			(task_description
+				(task_name)
+			)
+		)
+	)
+	(task_definition
+		(open_task
+			(open_checkbox)
+			(task_description
+				(task_name)
+			)
+		)
+	)
+	(task_definition
+		(open_task
+			(open_checkbox)
+			(task_description
+				(task_name)
+			)
+		)
+	)
+)
+
+================
+Empty lines etc.
+================
+
+[ ] Task 1
+
+[ ] Task 2 with some long description
+    that spans multiple lines
+    like this
+
+
+[ ] Task 3
+
+---
+
+(document
+	(task_definition
+		(open_task
+			(open_checkbox)
+			(task_description
+				(task_name)
+			)
+		)
+	)
+	(task_definition
+		(open_task
+			(open_checkbox)
+			(task_description
+				(task_name)
+			)
+		)
+	)
+	(task_definition
+		(open_task
+			(open_checkbox)
+			(task_description
+				(task_name)
+			)
+		)
+	)
+)
+
+==================
+Absent description
+==================
+
+[ ]
+[ ] 
+[ ]       
+
+---
+
+(document
+	(task_definition
+		(open_task
+			(open_checkbox)
+		)
+	)
+	(task_definition
+		(open_task
+			(open_checkbox) (task_description)
+		)
+	)
+	(task_definition
+		(open_task
+			(open_checkbox) (task_description)
+		)
+	)
+)
