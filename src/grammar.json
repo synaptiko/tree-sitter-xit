@@ -8,7 +8,7 @@
         "members": [
           {
             "type": "SYMBOL",
-            "name": "task"
+            "name": "line"
           },
           {
             "type": "STRING",
@@ -17,263 +17,20 @@
         ]
       }
     },
-    "task": {
-      "type": "CHOICE",
-      "members": [
-        {
-          "type": "SYMBOL",
-          "name": "open_task"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "checked_task"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "ongoing_task"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "obsolete_task"
-        }
-      ]
-    },
-    "indent": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "TOKEN",
-          "content": {
-            "type": "PATTERN",
-            "value": "[ ]{4}"
-          }
-        },
-        {
-          "type": "SYMBOL",
-          "name": "other_line"
-        }
-      ]
-    },
-    "main_line": {
-      "type": "TOKEN",
-      "content": {
-        "type": "PATTERN",
-        "value": "[^\\n]+"
-      }
-    },
-    "other_line": {
-      "type": "TOKEN",
-      "content": {
-        "type": "PATTERN",
-        "value": "[^\\n]+"
-      }
-    },
-    "open_checkbox": {
-      "type": "TOKEN",
-      "content": {
-        "type": "SEQ",
-        "members": [
-          {
-            "type": "STRING",
-            "value": "[ ]"
-          }
-        ]
-      }
-    },
-    "open_task": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "SYMBOL",
-          "name": "open_checkbox"
-        },
-        {
-          "type": "CHOICE",
-          "members": [
-            {
-              "type": "SEQ",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": " "
-                },
-                {
-                  "type": "CHOICE",
-                  "members": [
-                    {
-                      "type": "SYMBOL",
-                      "name": "description"
-                    },
-                    {
-                      "type": "BLANK"
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "type": "BLANK"
-            }
-          ]
-        }
-      ]
-    },
-    "checked_checkbox": {
-      "type": "TOKEN",
-      "content": {
-        "type": "SEQ",
-        "members": [
-          {
-            "type": "STRING",
-            "value": "[x]"
-          }
-        ]
-      }
-    },
-    "checked_task": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "SYMBOL",
-          "name": "checked_checkbox"
-        },
-        {
-          "type": "CHOICE",
-          "members": [
-            {
-              "type": "SEQ",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": " "
-                },
-                {
-                  "type": "CHOICE",
-                  "members": [
-                    {
-                      "type": "SYMBOL",
-                      "name": "description"
-                    },
-                    {
-                      "type": "BLANK"
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "type": "BLANK"
-            }
-          ]
-        }
-      ]
-    },
-    "ongoing_checkbox": {
-      "type": "TOKEN",
-      "content": {
-        "type": "SEQ",
-        "members": [
-          {
-            "type": "STRING",
-            "value": "[@]"
-          }
-        ]
-      }
-    },
-    "ongoing_task": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "SYMBOL",
-          "name": "ongoing_checkbox"
-        },
-        {
-          "type": "CHOICE",
-          "members": [
-            {
-              "type": "SEQ",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": " "
-                },
-                {
-                  "type": "CHOICE",
-                  "members": [
-                    {
-                      "type": "SYMBOL",
-                      "name": "description"
-                    },
-                    {
-                      "type": "BLANK"
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "type": "BLANK"
-            }
-          ]
-        }
-      ]
-    },
-    "obsolete_checkbox": {
-      "type": "TOKEN",
-      "content": {
-        "type": "SEQ",
-        "members": [
-          {
-            "type": "STRING",
-            "value": "[~]"
-          }
-        ]
-      }
-    },
-    "obsolete_task": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "SYMBOL",
-          "name": "obsolete_checkbox"
-        },
-        {
-          "type": "CHOICE",
-          "members": [
-            {
-              "type": "SEQ",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": " "
-                },
-                {
-                  "type": "CHOICE",
-                  "members": [
-                    {
-                      "type": "SYMBOL",
-                      "name": "description"
-                    },
-                    {
-                      "type": "BLANK"
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "type": "BLANK"
-            }
-          ]
-        }
-      ]
-    },
-    "description": {
+    "line": {
       "type": "CHOICE",
       "members": [
         {
           "type": "SEQ",
           "members": [
+            {
+              "type": "SYMBOL",
+              "name": "at"
+            },
+            {
+              "type": "STRING",
+              "value": " "
+            },
             {
               "type": "SYMBOL",
               "name": "priority"
@@ -284,7 +41,7 @@
             },
             {
               "type": "SYMBOL",
-              "name": "main_line"
+              "name": "text"
             }
           ]
         },
@@ -293,7 +50,7 @@
           "members": [
             {
               "type": "SYMBOL",
-              "name": "priority"
+              "name": "at"
             },
             {
               "type": "STRING",
@@ -301,87 +58,39 @@
             },
             {
               "type": "SYMBOL",
-              "name": "main_line"
-            },
-            {
-              "type": "STRING",
-              "value": "\n"
-            },
-            {
-              "type": "REPEAT",
-              "content": {
-                "type": "SEQ",
-                "members": [
-                  {
-                    "type": "SYMBOL",
-                    "name": "indent"
-                  },
-                  {
-                    "type": "STRING",
-                    "value": "\n"
-                  }
-                ]
-              }
-            },
-            {
-              "type": "SYMBOL",
-              "name": "indent"
-            }
-          ]
-        },
-        {
-          "type": "SYMBOL",
-          "name": "main_line"
-        },
-        {
-          "type": "SEQ",
-          "members": [
-            {
-              "type": "SYMBOL",
-              "name": "main_line"
-            },
-            {
-              "type": "STRING",
-              "value": "\n"
-            },
-            {
-              "type": "REPEAT",
-              "content": {
-                "type": "SEQ",
-                "members": [
-                  {
-                    "type": "SYMBOL",
-                    "name": "indent"
-                  },
-                  {
-                    "type": "STRING",
-                    "value": "\n"
-                  }
-                ]
-              }
-            },
-            {
-              "type": "SYMBOL",
-              "name": "indent"
+              "name": "text"
             }
           ]
         }
       ]
+    },
+    "at": {
+      "type": "STRING",
+      "value": "@"
     },
     "priority": {
-      "type": "REPEAT1",
+      "type": "STRING",
+      "value": "!"
+    },
+    "text": {
+      "type": "TOKEN",
       "content": {
-        "type": "STRING",
-        "value": "!"
+        "type": "PREC",
+        "value": -1,
+        "content": {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "PATTERN",
+              "value": "[^\\n]+"
+            }
+          ]
+        }
       }
     }
   },
   "extras": [],
-  "conflicts": [
-    [
-      "description"
-    ]
-  ],
+  "conflicts": [],
   "precedences": [],
   "externals": [],
   "inline": [],
