@@ -27,15 +27,35 @@
           "named": true
         },
         {
-          "type": "priority",
-          "named": true
-        },
-        {
-          "type": "text",
+          "type": "name",
           "named": true
         }
       ]
     }
+  },
+  {
+    "type": "name",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "priority",
+          "named": true
+        },
+        {
+          "type": "text_a",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "priority",
+    "named": true,
+    "fields": {}
   },
   {
     "type": "\n",
@@ -50,11 +70,7 @@
     "named": true
   },
   {
-    "type": "priority",
-    "named": true
-  },
-  {
-    "type": "text",
+    "type": "text_a",
     "named": true
   }
 ]

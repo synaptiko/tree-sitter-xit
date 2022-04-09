@@ -18,19 +18,40 @@
       }
     },
     "line": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "at"
+        },
+        {
+          "type": "STRING",
+          "value": " "
+        },
+        {
+          "type": "SYMBOL",
+          "name": "name"
+        }
+      ]
+    },
+    "at": {
+      "type": "STRING",
+      "value": "@"
+    },
+    "name": {
       "type": "CHOICE",
       "members": [
         {
+          "type": "SYMBOL",
+          "name": "priority"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "text_a"
+        },
+        {
           "type": "SEQ",
           "members": [
-            {
-              "type": "SYMBOL",
-              "name": "at"
-            },
-            {
-              "type": "STRING",
-              "value": " "
-            },
             {
               "type": "SYMBOL",
               "name": "priority"
@@ -41,52 +62,36 @@
             },
             {
               "type": "SYMBOL",
-              "name": "text"
-            }
-          ]
-        },
-        {
-          "type": "SEQ",
-          "members": [
-            {
-              "type": "SYMBOL",
-              "name": "at"
-            },
-            {
-              "type": "STRING",
-              "value": " "
-            },
-            {
-              "type": "SYMBOL",
-              "name": "text"
+              "name": "text_a"
             }
           ]
         }
       ]
     },
-    "at": {
-      "type": "STRING",
-      "value": "@"
-    },
     "priority": {
-      "type": "STRING",
-      "value": "!"
-    },
-    "text": {
-      "type": "TOKEN",
-      "content": {
-        "type": "PREC",
-        "value": -1,
-        "content": {
-          "type": "SEQ",
-          "members": [
-            {
-              "type": "PATTERN",
-              "value": "[^\\n]+"
-            }
-          ]
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "PATTERN",
+          "value": "!+"
+        },
+        {
+          "type": "PATTERN",
+          "value": "!+\\.+"
+        },
+        {
+          "type": "PATTERN",
+          "value": "\\.+!+"
+        },
+        {
+          "type": "PATTERN",
+          "value": "\\.\\.+"
         }
-      }
+      ]
+    },
+    "text_a": {
+      "type": "PATTERN",
+      "value": "[^!. \\n][^\\n]*"
     }
   },
   "extras": [],

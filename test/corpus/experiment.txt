@@ -1,17 +1,81 @@
 ==========
 Experiment
 ==========
-@ ! !test!
-@ !test!
+@ ! test
+@ test ! test
+@ test !!!
+@ !!! test
+@ ..! test
+@ .!! test
+@ ... test
+@ !.. test
+@ !!. test
 ---
 (document
   (line
     (at)
-    (priority)
-    (text)
+    (name
+      (priority)
+      (text_a)
+    )
   )
   (line
     (at)
-    (text)
+    (name
+      (text_a)
+    )
+  )
+  (line
+    (at)
+    (name
+      (text_a)
+    )
+  )
+  (line
+    (at)
+    (name
+      (priority)
+      (text_a)
+    )
+  )
+  (line
+    (at)
+    (name
+      (priority)
+      (text_a)
+    )
+  )
+  (line
+    (at)
+    (name
+      (priority)
+      (text_a)
+    )
+  )
+  (line
+    (at)
+    (name
+      (priority)
+      (text_a)
+    )
+  )
+  (line
+    (at)
+    (name
+      (priority)
+      (text_a)
+    )
+  )
+  (line
+    (at)
+    (name
+      (priority)
+      (text_a)
+    )
   )
 )
+
+=====
+Later
+=====
+---
