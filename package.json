@@ -6,11 +6,20 @@
     "nan": "^2.15.0"
   },
   "devDependencies": {
+    "prettier": "^2.6.2",
     "tree-sitter-cli": "^0.20.6"
   },
   "main": "bindings/node",
-	"scripts": {
-		"generate": "tree-sitter generate",
-		"test": "tree-sitter test"
-	}
+  "scripts": {
+    "generate": "tree-sitter generate",
+    "test": "tree-sitter test"
+  },
+  "prettier": {
+    "trailingComma": "es5",
+    "printWidth": 120,
+    "tabWidth": 2,
+    "useTabs": false,
+    "semi": true,
+    "singleQuote": true
+  }
 }

@@ -8,7 +8,7 @@
         "members": [
           {
             "type": "SYMBOL",
-            "name": "task_definition"
+            "name": "task"
           },
           {
             "type": "STRING",
@@ -17,7 +17,7 @@
         ]
       }
     },
-    "task_definition": {
+    "task": {
       "type": "CHOICE",
       "members": [
         {
@@ -26,11 +26,11 @@
         },
         {
           "type": "SYMBOL",
-          "name": "ongoing_task"
+          "name": "checked_task"
         },
         {
           "type": "SYMBOL",
-          "name": "checked_task"
+          "name": "ongoing_task"
         },
         {
           "type": "SYMBOL",
@@ -38,14 +38,47 @@
         }
       ]
     },
-    "open_checkbox": {
+    "indent": {
       "type": "SEQ",
       "members": [
         {
-          "type": "STRING",
-          "value": "[ ]"
+          "type": "TOKEN",
+          "content": {
+            "type": "PATTERN",
+            "value": "[ ]{4}"
+          }
+        },
+        {
+          "type": "SYMBOL",
+          "name": "other_line"
         }
       ]
+    },
+    "main_line": {
+      "type": "TOKEN",
+      "content": {
+        "type": "PATTERN",
+        "value": "[^\\n]+"
+      }
+    },
+    "other_line": {
+      "type": "TOKEN",
+      "content": {
+        "type": "PATTERN",
+        "value": "[^\\n]+"
+      }
+    },
+    "open_checkbox": {
+      "type": "TOKEN",
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "STRING",
+            "value": "[ ]"
+          }
+        ]
+      }
     },
     "open_task": {
       "type": "SEQ",
@@ -58,38 +91,25 @@
           "type": "CHOICE",
           "members": [
             {
-              "type": "SYMBOL",
-              "name": "task_description"
-            },
-            {
-              "type": "BLANK"
-            }
-          ]
-        }
-      ]
-    },
-    "ongoing_checkbox": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "STRING",
-          "value": "[@]"
-        }
-      ]
-    },
-    "ongoing_task": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "SYMBOL",
-          "name": "ongoing_checkbox"
-        },
-        {
-          "type": "CHOICE",
-          "members": [
-            {
-              "type": "SYMBOL",
-              "name": "task_description"
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "STRING",
+                  "value": " "
+                },
+                {
+                  "type": "CHOICE",
+                  "members": [
+                    {
+                      "type": "SYMBOL",
+                      "name": "description"
+                    },
+                    {
+                      "type": "BLANK"
+                    }
+                  ]
+                }
+              ]
             },
             {
               "type": "BLANK"
@@ -99,13 +119,16 @@
       ]
     },
     "checked_checkbox": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "STRING",
-          "value": "[x]"
-        }
-      ]
+      "type": "TOKEN",
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "STRING",
+            "value": "[x]"
+          }
+        ]
+      }
     },
     "checked_task": {
       "type": "SEQ",
@@ -118,8 +141,75 @@
           "type": "CHOICE",
           "members": [
             {
-              "type": "SYMBOL",
-              "name": "task_description"
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "STRING",
+                  "value": " "
+                },
+                {
+                  "type": "CHOICE",
+                  "members": [
+                    {
+                      "type": "SYMBOL",
+                      "name": "description"
+                    },
+                    {
+                      "type": "BLANK"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        }
+      ]
+    },
+    "ongoing_checkbox": {
+      "type": "TOKEN",
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "STRING",
+            "value": "[@]"
+          }
+        ]
+      }
+    },
+    "ongoing_task": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "ongoing_checkbox"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "STRING",
+                  "value": " "
+                },
+                {
+                  "type": "CHOICE",
+                  "members": [
+                    {
+                      "type": "SYMBOL",
+                      "name": "description"
+                    },
+                    {
+                      "type": "BLANK"
+                    }
+                  ]
+                }
+              ]
             },
             {
               "type": "BLANK"
@@ -129,13 +219,16 @@
       ]
     },
     "obsolete_checkbox": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "STRING",
-          "value": "[~]"
-        }
-      ]
+      "type": "TOKEN",
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "STRING",
+            "value": "[~]"
+          }
+        ]
+      }
     },
     "obsolete_task": {
       "type": "SEQ",
@@ -148,42 +241,23 @@
           "type": "CHOICE",
           "members": [
             {
-              "type": "SYMBOL",
-              "name": "task_description"
-            },
-            {
-              "type": "BLANK"
-            }
-          ]
-        }
-      ]
-    },
-    "task_description": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "IMMEDIATE_TOKEN",
-          "content": {
-            "type": "STRING",
-            "value": " "
-          }
-        },
-        {
-          "type": "CHOICE",
-          "members": [
-            {
-              "type": "CHOICE",
+              "type": "SEQ",
               "members": [
                 {
-                  "type": "REPEAT1",
-                  "content": {
-                    "type": "STRING",
-                    "value": " "
-                  }
+                  "type": "STRING",
+                  "value": " "
                 },
                 {
-                  "type": "SYMBOL",
-                  "name": "task_name"
+                  "type": "CHOICE",
+                  "members": [
+                    {
+                      "type": "SYMBOL",
+                      "name": "description"
+                    },
+                    {
+                      "type": "BLANK"
+                    }
+                  ]
                 }
               ]
             },
@@ -194,44 +268,43 @@
         }
       ]
     },
-    "task_name": {
+    "description": {
       "type": "CHOICE",
       "members": [
         {
-          "type": "IMMEDIATE_TOKEN",
-          "content": {
-            "type": "PATTERN",
-            "value": "[^ \\n][^\\n]+"
-          }
+          "type": "SYMBOL",
+          "name": "main_line"
         },
         {
           "type": "SEQ",
           "members": [
             {
-              "type": "IMMEDIATE_TOKEN",
-              "content": {
-                "type": "PATTERN",
-                "value": "[^ \\n][^\\n]+"
-              }
+              "type": "SYMBOL",
+              "name": "main_line"
             },
             {
-              "type": "REPEAT1",
+              "type": "STRING",
+              "value": "\n"
+            },
+            {
+              "type": "REPEAT",
               "content": {
                 "type": "SEQ",
                 "members": [
                   {
-                    "type": "STRING",
-                    "value": "\n   "
+                    "type": "SYMBOL",
+                    "name": "indent"
                   },
                   {
-                    "type": "IMMEDIATE_TOKEN",
-                    "content": {
-                      "type": "PATTERN",
-                      "value": "[^\\n]+"
-                    }
+                    "type": "STRING",
+                    "value": "\n"
                   }
                 ]
               }
+            },
+            {
+              "type": "SYMBOL",
+              "name": "indent"
             }
           ]
         }
@@ -239,7 +312,11 @@
     }
   },
   "extras": [],
-  "conflicts": [],
+  "conflicts": [
+    [
+      "description"
+    ]
+  ],
   "precedences": [],
   "externals": [],
   "inline": [],

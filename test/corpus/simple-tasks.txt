@@ -3,33 +3,15 @@ Open task
 =========
 [ ] Open task
 ---
-
 (document
-	(task_definition
-		(open_task
-			(open_checkbox)
-			(task_description
-				(task_name)
-			)
-		)
-	)
-)
-
-============
-Ongoing task
-============
-[@] Ongoing task
----
-
-(document
-	(task_definition
-		(ongoing_task
-			(ongoing_checkbox)
-			(task_description
-				(task_name)
-			)
-		)
-	)
+  (task
+    (open_task
+      (open_checkbox)
+      (description
+        (main_line)
+      )
+    )
+  )
 )
 
 ============
@@ -37,16 +19,31 @@ Checked task
 ============
 [x] Checked task
 ---
-
 (document
-	(task_definition
-		(checked_task
-			(checked_checkbox)
-			(task_description
-				(task_name)
-			)
-		)
-	)
+  (task
+    (checked_task
+      (checked_checkbox)
+      (description
+        (main_line)
+      )
+    )
+  )
+)
+
+============
+Ongoing task
+============
+[@] Ongoing task
+---
+(document
+  (task
+    (ongoing_task
+      (ongoing_checkbox)
+      (description
+        (main_line)
+      )
+    )
+  )
 )
 
 =============
@@ -54,16 +51,15 @@ Obsolete task
 =============
 [~] Obsolete task
 ---
-
 (document
-	(task_definition
-		(obsolete_task
-			(obsolete_checkbox)
-			(task_description
-				(task_name)
-			)
-		)
-	)
+  (task
+    (obsolete_task
+      (obsolete_checkbox)
+      (description
+        (main_line)
+      )
+    )
+  )
 )
 
 =========
@@ -73,32 +69,31 @@ Task list
 [ ] Task 2
 [ ] Task 3
 ---
-
 (document
-	(task_definition
-		(open_task
-			(open_checkbox)
-			(task_description
-				(task_name)
-			)
-		)
-	)
-	(task_definition
-		(open_task
-			(open_checkbox)
-			(task_description
-				(task_name)
-			)
-		)
-	)
-	(task_definition
-		(open_task
-			(open_checkbox)
-			(task_description
-				(task_name)
-			)
-		)
-	)
+  (task
+    (open_task
+      (open_checkbox)
+      (description
+        (main_line)
+      )
+    )
+  )
+  (task
+    (open_task
+      (open_checkbox)
+      (description
+        (main_line)
+      )
+    )
+  )
+  (task
+    (open_task
+      (open_checkbox)
+      (description
+        (main_line)
+      )
+    )
+  )
 )
 
 ==============
@@ -110,32 +105,37 @@ Multiline task
     like this
 [ ] Task 3
 ---
-
 (document
-	(task_definition
-		(open_task
-			(open_checkbox)
-			(task_description
-				(task_name)
-			)
-		)
-	)
-	(task_definition
-		(open_task
-			(open_checkbox)
-			(task_description
-				(task_name)
-			)
-		)
-	)
-	(task_definition
-		(open_task
-			(open_checkbox)
-			(task_description
-				(task_name)
-			)
-		)
-	)
+  (task
+    (open_task
+      (open_checkbox)
+      (description
+        (main_line)
+      )
+    )
+  )
+  (task
+    (open_task
+      (open_checkbox)
+      (description
+        (main_line)
+        (indent
+          (other_line)
+        )
+        (indent
+          (other_line)
+        )
+      )
+    )
+  )
+  (task
+    (open_task
+      (open_checkbox)
+      (description
+        (main_line)
+      )
+    )
+  )
 )
 
 ================
@@ -152,32 +152,37 @@ Empty lines etc.
 [ ] Task 3
 
 ---
-
 (document
-	(task_definition
-		(open_task
-			(open_checkbox)
-			(task_description
-				(task_name)
-			)
-		)
-	)
-	(task_definition
-		(open_task
-			(open_checkbox)
-			(task_description
-				(task_name)
-			)
-		)
-	)
-	(task_definition
-		(open_task
-			(open_checkbox)
-			(task_description
-				(task_name)
-			)
-		)
-	)
+  (task
+    (open_task
+      (open_checkbox)
+      (description
+        (main_line)
+      )
+    )
+  )
+  (task
+    (open_task
+      (open_checkbox)
+      (description
+        (main_line)
+        (indent
+          (other_line)
+        )
+        (indent
+          (other_line)
+        )
+      )
+    )
+  )
+  (task
+    (open_task
+      (open_checkbox)
+      (description
+        (main_line)
+      )
+    )
+  )
 )
 
 ==================
@@ -189,21 +194,23 @@ Absent description
 [ ]       
 
 ---
-
 (document
-	(task_definition
-		(open_task
-			(open_checkbox)
-		)
-	)
-	(task_definition
-		(open_task
-			(open_checkbox) (task_description)
-		)
-	)
-	(task_definition
-		(open_task
-			(open_checkbox) (task_description)
-		)
-	)
+  (task
+    (open_task
+      (open_checkbox)
+    )
+  )
+  (task
+    (open_task
+      (open_checkbox)
+    )
+  )
+  (task
+    (open_task
+      (open_checkbox)
+      (description
+        (main_line)
+      )
+    )
+  )
 )
