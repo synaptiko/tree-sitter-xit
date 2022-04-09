@@ -19,9 +19,5 @@ Additional functionality and necessary setup is done by [xit-nvim](https://githu
 
 ## Status
 
-- [x] Status
-- [x] Description
-- [ ] Priority
-- [ ] Due Date
-- [ ] Tags
-- [ ] Grouping
+Work in progress, see more in:
+[TODO.xit](./TODO.xit)
