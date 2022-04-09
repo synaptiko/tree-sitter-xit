@@ -33,6 +33,10 @@
         {
           "type": "main_line",
           "named": true
+        },
+        {
+          "type": "priority",
+          "named": true
         }
       ]
     }
@@ -135,6 +139,11 @@
     "fields": {}
   },
   {
+    "type": "priority",
+    "named": true,
+    "fields": {}
+  },
+  {
     "type": "task",
     "named": true,
     "fields": {},
@@ -167,6 +176,10 @@
   },
   {
     "type": " ",
+    "named": false
+  },
+  {
+    "type": "!",
     "named": false
   },
   {

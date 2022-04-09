@@ -1,0 +1,36 @@
+==========
+Priorities
+==========
+[ ] ! Open task
+[ ] !!! Open task
+[ ] !!!!!!!!!! Open task
+---
+(document
+  (task
+    (open_task
+      (open_checkbox)
+      (description
+        (priority)
+        (main_line)
+      )
+    )
+  )
+  (task
+    (open_task
+      (open_checkbox)
+      (description
+        (priority)
+        (main_line)
+      )
+    )
+  )
+  (task
+    (open_task
+      (open_checkbox)
+      (description
+        (priority)
+        (main_line)
+      )
+    )
+  )
+)
