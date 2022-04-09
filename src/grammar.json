@@ -117,7 +117,7 @@
       "type": "TOKEN",
       "content": {
         "type": "PATTERN",
-        "value": "[^\\n]+"
+        "value": "[^!.\\n][^\\n]+"
       }
     },
     "other_line": {
@@ -331,6 +331,64 @@
       "type": "CHOICE",
       "members": [
         {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "priority"
+            },
+            {
+              "type": "STRING",
+              "value": " "
+            },
+            {
+              "type": "SYMBOL",
+              "name": "main_line"
+            }
+          ]
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "priority"
+            },
+            {
+              "type": "STRING",
+              "value": " "
+            },
+            {
+              "type": "SYMBOL",
+              "name": "main_line"
+            },
+            {
+              "type": "STRING",
+              "value": "\n"
+            },
+            {
+              "type": "REPEAT",
+              "content": {
+                "type": "SEQ",
+                "members": [
+                  {
+                    "type": "SYMBOL",
+                    "name": "indent"
+                  },
+                  {
+                    "type": "STRING",
+                    "value": "\n"
+                  }
+                ]
+              }
+            },
+            {
+              "type": "SYMBOL",
+              "name": "indent"
+            }
+          ]
+        },
+        {
           "type": "SYMBOL",
           "name": "main_line"
         },
@@ -366,6 +424,27 @@
               "name": "indent"
             }
           ]
+        }
+      ]
+    },
+    "priority": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "PATTERN",
+          "value": "!+"
+        },
+        {
+          "type": "PATTERN",
+          "value": "!+\\.+"
+        },
+        {
+          "type": "PATTERN",
+          "value": "\\.+!+"
+        },
+        {
+          "type": "PATTERN",
+          "value": "\\.\\.+"
         }
       ]
     }

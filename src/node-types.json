@@ -33,6 +33,10 @@
         {
           "type": "main_line",
           "named": true
+        },
+        {
+          "type": "priority",
+          "named": true
         }
       ]
     }
@@ -75,11 +79,6 @@
         }
       ]
     }
-  },
-  {
-    "type": "main_line",
-    "named": true,
-    "fields": {}
   },
   {
     "type": "obsolete_task",
@@ -139,7 +138,7 @@
     }
   },
   {
-    "type": "other_line",
+    "type": "priority",
     "named": true,
     "fields": {}
   },
@@ -183,6 +182,10 @@
     "named": true
   },
   {
+    "type": "main_line",
+    "named": true
+  },
+  {
     "type": "obsolete_checkbox",
     "named": true
   },
@@ -192,6 +195,10 @@
   },
   {
     "type": "open_checkbox",
+    "named": true
+  },
+  {
+    "type": "other_line",
     "named": true
   }
 ]
