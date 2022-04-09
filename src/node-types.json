@@ -46,11 +46,20 @@
       "required": false,
       "types": [
         {
+          "type": "headline",
+          "named": true
+        },
+        {
           "type": "task",
           "named": true
         }
       ]
     }
+  },
+  {
+    "type": "headline",
+    "named": true,
+    "fields": {}
   },
   {
     "type": "indent",

@@ -1,0 +1,100 @@
+=========
+Headlines
+=========
+[ ] Task 1
+[ ] Task 2 with some long description
+    that spans multiple lines
+    like this
+[ ] Task 3
+
+Headline1
+[ ] Task 1
+[ ] Task 2 with some long description
+    that spans multiple lines
+    like this
+[ ] Task 3
+
+Headline2
+[ ] Task 1
+[ ] Task 2
+---
+(document
+  (task
+    (open_task
+      (open_checkbox)
+      (description
+        (main_line)
+      )
+    )
+  )
+  (task
+    (open_task
+      (open_checkbox)
+      (description
+        (main_line)
+        (indent
+          (other_line)
+        )
+        (indent
+          (other_line)
+        )
+      )
+    )
+  )
+  (task
+    (open_task
+      (open_checkbox)
+      (description
+        (main_line)
+      )
+    )
+  )
+  (headline)
+  (task
+    (open_task
+      (open_checkbox)
+      (description
+        (main_line)
+      )
+    )
+  )
+  (task
+    (open_task
+      (open_checkbox)
+      (description
+        (main_line)
+        (indent
+          (other_line)
+        )
+        (indent
+          (other_line)
+        )
+      )
+    )
+  )
+  (task
+    (open_task
+      (open_checkbox)
+      (description
+        (main_line)
+      )
+    )
+  )
+  (headline)
+  (task
+    (open_task
+      (open_checkbox)
+      (description
+        (main_line)
+      )
+    )
+  )
+  (task
+    (open_task
+      (open_checkbox)
+      (description
+        (main_line)
+      )
+    )
+  )
+)

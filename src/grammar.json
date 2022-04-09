@@ -2,20 +2,79 @@
   "name": "xit",
   "rules": {
     "document": {
-      "type": "REPEAT",
-      "content": {
-        "type": "CHOICE",
-        "members": [
-          {
-            "type": "SYMBOL",
-            "name": "task"
-          },
-          {
-            "type": "STRING",
-            "value": "\n"
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "REPEAT",
+          "content": {
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "headline"
+              },
+              {
+                "type": "SEQ",
+                "members": [
+                  {
+                    "type": "SYMBOL",
+                    "name": "task"
+                  },
+                  {
+                    "type": "STRING",
+                    "value": "\n"
+                  }
+                ]
+              },
+              {
+                "type": "SYMBOL",
+                "name": "empty_line"
+              }
+            ]
           }
-        ]
-      }
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "task"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        }
+      ]
+    },
+    "headline": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "PATTERN",
+          "value": "[^\\[ \\n][^\\n]+"
+        },
+        {
+          "type": "STRING",
+          "value": "\n"
+        }
+      ]
+    },
+    "empty_line": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "\n"
+        },
+        {
+          "type": "REPEAT",
+          "content": {
+            "type": "STRING",
+            "value": " "
+          }
+        }
+      ]
     },
     "task": {
       "type": "CHOICE",
@@ -314,12 +373,18 @@
   "extras": [],
   "conflicts": [
     [
+      "task",
+      "headline"
+    ],
+    [
       "description"
     ]
   ],
   "precedences": [],
   "externals": [],
-  "inline": [],
+  "inline": [
+    "empty_line"
+  ],
   "supertypes": []
 }
 
