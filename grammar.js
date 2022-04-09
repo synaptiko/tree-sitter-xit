@@ -9,7 +9,7 @@ module.exports = grammar({
   rules: {
     document: ($) => seq(repeat(choice($.headline, seq($.task, '\n'), $.empty_line)), optional($.task)),
     headline: (_$) => seq(/[^\[ \n][^\n]+/, '\n'),
-    empty_line: (_$) => seq('\n', repeat(' ')),
+    empty_line: (_$) => seq(repeat(' '), '\n'),
     task: ($) => choice($.open_task, $.checked_task, $.ongoing_task, $.obsolete_task),
     indent: ($) => seq(token(/[ ]{4}/), $.other_line),
     main_line: (_$) => token(/[^\n]+/),
