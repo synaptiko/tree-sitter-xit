@@ -1,0 +1,24 @@
+0.1
+[x] Status
+[x] Description
+[x] !! Priority
+[~] Grouping
+[x] Headline
+[@] Create a release
+
+0.2
+[ ] Tags
+[ ] Create a release
+
+0.3
+[ ] Due Date
+[ ] Create a release
+
+0.4
+[ ] Initiate discussion about divider in the spec: https://github.com/jotaen/xit/ (not part of official spec)
+[ ] Add divider support
+[ ] Create a release
+
+1.0
+[ ] Stabilize
+[ ] Create a release

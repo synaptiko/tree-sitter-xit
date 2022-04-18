@@ -15,9 +15,34 @@ augroup xit_filetype
 augroup END
 ```
 
-Additional functionality and necessary setup is done by [xit-nvim](https://github.com/synaptiko/xit-nvim#installation) plugin.
+Necessary setup and some additional functionality is done by [xit-nvim](https://github.com/synaptiko/xit-nvim#installation) plugin.
 
-## Status
+## Roadmap
 
-Work in progress, see more in:
-[TODO.xit](./TODO.xit)
+See also [Roadmap.xit](./Roadmap.xit)
+
+### 0.1 (Released)
+
+Basic functionality.
+
+### 0.2 (WIP)
+
+Support for tags.
+
+### 0.3
+
+Support for due date.
+
+### 0.4
+
+Support for divider.
+
+### 1.0
+
+Stabilized syntax.
+
+## Contributing
+
+Any contributions are welcome (check [the list above](#roadmap) to see open/ongoing tasks).
+
+You can also check [recommended learning resources](./LearningResources.md).
