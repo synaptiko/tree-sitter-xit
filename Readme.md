@@ -45,4 +45,4 @@ Stabilized syntax.
 
 Any contributions are welcome (check [the list above](#roadmap) to see open/ongoing tasks).
 
-You can also check [recommended learning resources](./LearningResources.md).
+You can also check [recommended learning resources](./LearningResources.md) and [ideas](./Ideas.md).
