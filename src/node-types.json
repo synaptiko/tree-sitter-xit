@@ -66,6 +66,25 @@
     "fields": {}
   },
   {
+    "type": "in_question_task",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "description",
+          "named": true
+        },
+        {
+          "type": "in_question_checkbox",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "indent",
     "named": true,
     "fields": {},
@@ -155,6 +174,10 @@
           "named": true
         },
         {
+          "type": "in_question_task",
+          "named": true
+        },
+        {
           "type": "obsolete_task",
           "named": true
         },
@@ -179,6 +202,10 @@
   },
   {
     "type": "checked_checkbox",
+    "named": true
+  },
+  {
+    "type": "in_question_checkbox",
     "named": true
   },
   {

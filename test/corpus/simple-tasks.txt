@@ -62,6 +62,22 @@ Obsolete task
   )
 )
 
+=============
+In question task
+=============
+[?] In question
+---
+(document
+  (task
+    (in_question_task
+      (in_question_checkbox)
+      (description
+        (main_line)
+      )
+    )
+  )
+)
+
 =========
 Task list
 =========

@@ -94,6 +94,10 @@
         {
           "type": "SYMBOL",
           "name": "obsolete_task"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "in_question_task"
         }
       ]
     },
@@ -295,6 +299,56 @@
         {
           "type": "SYMBOL",
           "name": "obsolete_checkbox"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "STRING",
+                  "value": " "
+                },
+                {
+                  "type": "CHOICE",
+                  "members": [
+                    {
+                      "type": "SYMBOL",
+                      "name": "description"
+                    },
+                    {
+                      "type": "BLANK"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        }
+      ]
+    },
+    "in_question_checkbox": {
+      "type": "TOKEN",
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "STRING",
+            "value": "[?]"
+          }
+        ]
+      }
+    },
+    "in_question_task": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "in_question_checkbox"
         },
         {
           "type": "CHOICE",

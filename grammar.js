@@ -10,7 +10,7 @@ module.exports = grammar({
     document: ($) => seq(repeat(choice($.headline, seq($.task, '\n'), $.empty_line)), optional($.task)),
     headline: (_$) => seq(/[^\[ \n][^\n]+/, '\n'),
     empty_line: (_$) => seq(repeat(' '), '\n'),
-    task: ($) => choice($.open_task, $.checked_task, $.ongoing_task, $.obsolete_task),
+    task: ($) => choice($.open_task, $.checked_task, $.ongoing_task, $.obsolete_task, $.in_question_task),
     indent: ($) => seq(token(/[ ]{4}/), $.other_line),
     main_line: (_$) => token(/[^!.\n][^\n]+/),
     other_line: (_$) => token(/[^\n]+/),
@@ -22,6 +22,8 @@ module.exports = grammar({
     ongoing_task: ($) => seq($.ongoing_checkbox, optional(seq(' ', optional($.description)))),
     obsolete_checkbox: (_$) => token(seq('[~]')),
     obsolete_task: ($) => seq($.obsolete_checkbox, optional(seq(' ', optional($.description)))),
+    in_question_checkbox: (_$) => token(seq('[?]')),
+    in_question_task: ($) => seq($.in_question_checkbox, optional(seq(' ', optional($.description)))),
     description: ($) =>
       choice(
         seq($.priority, ' ', $.main_line),
