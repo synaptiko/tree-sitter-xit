@@ -1,0 +1,76 @@
+==================
+Tags in descriptions
+==================
+[ ] This #item has #multiple #tags!
+[ ] #name=value #empty= #quoted="two words" #single='two words'
+[ ] #Unicode_é-123=Value_ß-456 #empty="" #empty=''
+[ ] #quoted="contains #text and -> 2026-03-31" #next
+[ ] #unclosed="no closing quote
+[ ] Plain # punctuation and a hyphen-separated word -> not a date
+---
+(document
+  (task (open_task (open_checkbox) (description (main_line (tag) (tag) (tag)))))
+  (task (open_task (open_checkbox) (description (main_line (tag) (tag) (tag) (tag)))))
+  (task (open_task (open_checkbox) (description (main_line (tag) (tag) (tag)))))
+  (task (open_task (open_checkbox) (description (main_line (tag) (tag)))))
+  (task (open_task (open_checkbox) (description (main_line (tag)))))
+  (task (open_task (open_checkbox) (description (main_line)))))
+
+==================
+Due date patterns
+==================
+[ ] -> 2026-03-31 calendar day
+[ ] -> 2026/03/31 calendar day
+[ ] -> 2026-03 month
+[ ] -> 2026/03 month
+[ ] -> 2026 year
+[ ] -> 2026-W01 week
+[ ] -> 2026/W53 week
+[ ] -> 2026-Q1 quarter
+[ ] -> 2026/Q4 quarter
+[ ] Finish before -> 2024-02-29!
+---
+(document
+  (task (open_task (open_checkbox) (description (main_line (due_date)))))
+  (task (open_task (open_checkbox) (description (main_line (due_date)))))
+  (task (open_task (open_checkbox) (description (main_line (due_date)))))
+  (task (open_task (open_checkbox) (description (main_line (due_date)))))
+  (task (open_task (open_checkbox) (description (main_line (due_date)))))
+  (task (open_task (open_checkbox) (description (main_line (due_date)))))
+  (task (open_task (open_checkbox) (description (main_line (due_date)))))
+  (task (open_task (open_checkbox) (description (main_line (due_date)))))
+  (task (open_task (open_checkbox) (description (main_line (due_date)))))
+  (task (open_task (open_checkbox) (description (main_line (due_date))))))
+
+==================
+Metadata on continuation lines and with priorities
+==================
+[ ] !! #urgent finish -> 2026-Q2
+    with #owner='someone else'
+    -> 2026/06/30 and #done
+[x] #complete
+[@] -> 2026
+[~] Archived #old
+[?] Ask #someone
+---
+(document
+  (task (open_task (open_checkbox)
+    (description
+      (priority)
+      (main_line (tag) (due_date))
+      (indent (other_line (tag)))
+      (indent (other_line (due_date) (tag))))))
+  (task (checked_task (checked_checkbox) (description (main_line (tag)))))
+  (task (ongoing_task (ongoing_checkbox) (description (main_line (due_date)))))
+  (task (obsolete_task (obsolete_checkbox) (description (main_line (tag)))))
+  (task (in_question_task (in_question_checkbox) (description (main_line (tag))))))
+
+==================
+Headlines remain plain text
+==================
+Title with #tag and -> 2026
+[ ] A description
+---
+(document
+  (headline)
+  (task (open_task (open_checkbox) (description (main_line)))))

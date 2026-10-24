@@ -100,6 +100,25 @@
     }
   },
   {
+    "type": "main_line",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "due_date",
+          "named": true
+        },
+        {
+          "type": "tag",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "obsolete_task",
     "named": true,
     "fields": {},
@@ -157,6 +176,25 @@
     }
   },
   {
+    "type": "other_line",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "due_date",
+          "named": true
+        },
+        {
+          "type": "tag",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "priority",
     "named": true,
     "fields": {}
@@ -201,15 +239,23 @@
     "named": false
   },
   {
+    "type": "#",
+    "named": false
+  },
+  {
+    "type": "-",
+    "named": false
+  },
+  {
     "type": "checked_checkbox",
     "named": true
   },
   {
-    "type": "in_question_checkbox",
+    "type": "due_date",
     "named": true
   },
   {
-    "type": "main_line",
+    "type": "in_question_checkbox",
     "named": true
   },
   {
@@ -225,7 +271,7 @@
     "named": true
   },
   {
-    "type": "other_line",
+    "type": "tag",
     "named": true
   }
 ]

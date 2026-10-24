@@ -12,8 +12,20 @@ module.exports = grammar({
     empty_line: (_$) => seq(repeat(' '), '\n'),
     task: ($) => choice($.open_task, $.checked_task, $.ongoing_task, $.obsolete_task, $.in_question_task),
     indent: ($) => seq(token(/[ ]{4}/), $.other_line),
-    main_line: (_$) => token(/[^!.\n][^\n]+/),
-    other_line: (_$) => token(/[^\n]+/),
+    main_line: ($) =>
+      seq(
+        choice(token(/[^!.\n#-][^\n#-]*/), $.tag, $.due_date, '#', '-'),
+        repeat(choice(token(/[^\n#-]+/), $.tag, $.due_date, '#', '-'))
+      ),
+    other_line: ($) => repeat1(choice(token(/[^\n#-]+/), $.tag, $.due_date, '#', '-')),
+    tag: (_$) => token(prec(1, /#[\p{L}0-9_-]+(=("[^"\n]*"|'[^'\n]*'|[\p{L}0-9_-]*))?/)),
+    due_date: (_$) =>
+      token(
+        prec(
+          1,
+          /-> [0-9]{4}(-(0[1-9]|1[0-2])(-(0[1-9]|[12][0-9]|3[01]))?|\/(0[1-9]|1[0-2])(\/(0[1-9]|[12][0-9]|3[01]))?|[-/](W(0[1-9]|[1-4][0-9]|5[0-3])|Q[1-4]))?/
+        )
+      ),
     open_checkbox: (_$) => token(seq('[ ]')),
     open_task: ($) => seq($.open_checkbox, optional(seq(' ', optional($.description)))),
     checked_checkbox: (_$) => token(seq('[x]')),
