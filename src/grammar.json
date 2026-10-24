@@ -118,17 +118,120 @@
       ]
     },
     "main_line": {
-      "type": "TOKEN",
-      "content": {
-        "type": "PATTERN",
-        "value": "[^!.\\n][^\\n]+"
-      }
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "TOKEN",
+              "content": {
+                "type": "PATTERN",
+                "value": "[^!.\\n#-][^\\n#-]*"
+              }
+            },
+            {
+              "type": "SYMBOL",
+              "name": "tag"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "due_date"
+            },
+            {
+              "type": "STRING",
+              "value": "#"
+            },
+            {
+              "type": "STRING",
+              "value": "-"
+            }
+          ]
+        },
+        {
+          "type": "REPEAT",
+          "content": {
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "TOKEN",
+                "content": {
+                  "type": "PATTERN",
+                  "value": "[^\\n#-]+"
+                }
+              },
+              {
+                "type": "SYMBOL",
+                "name": "tag"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "due_date"
+              },
+              {
+                "type": "STRING",
+                "value": "#"
+              },
+              {
+                "type": "STRING",
+                "value": "-"
+              }
+            ]
+          }
+        }
+      ]
     },
     "other_line": {
+      "type": "REPEAT1",
+      "content": {
+        "type": "CHOICE",
+        "members": [
+          {
+            "type": "TOKEN",
+            "content": {
+              "type": "PATTERN",
+              "value": "[^\\n#-]+"
+            }
+          },
+          {
+            "type": "SYMBOL",
+            "name": "tag"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "due_date"
+          },
+          {
+            "type": "STRING",
+            "value": "#"
+          },
+          {
+            "type": "STRING",
+            "value": "-"
+          }
+        ]
+      }
+    },
+    "tag": {
       "type": "TOKEN",
       "content": {
-        "type": "PATTERN",
-        "value": "[^\\n]+"
+        "type": "PREC",
+        "value": 1,
+        "content": {
+          "type": "PATTERN",
+          "value": "#[\\p{L}0-9_-]+(=(\"[^\"\\n]*\"|'[^'\\n]*'|[\\p{L}0-9_-]*))?"
+        }
+      }
+    },
+    "due_date": {
+      "type": "TOKEN",
+      "content": {
+        "type": "PREC",
+        "value": 1,
+        "content": {
+          "type": "PATTERN",
+          "value": "-> [0-9]{4}(-(0[1-9]|1[0-2])(-(0[1-9]|[12][0-9]|3[01]))?|\\/(0[1-9]|1[0-2])(\\/(0[1-9]|[12][0-9]|3[01]))?|[-/](W(0[1-9]|[1-4][0-9]|5[0-3])|Q[1-4]))?"
+        }
       }
     },
     "open_checkbox": {
